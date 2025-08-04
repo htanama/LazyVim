@@ -1,6 +1,5 @@
-# LazyVim
+# LazyVim with Tokyonight Theme
 This is starter file for neovim and plugin with tokyonight theme that you can use in your director `.config/nvim`
-
 
 Make a backup of your current Neovim files:
 ```
@@ -16,7 +15,7 @@ mv ~/.cache/nvim{,.bak}
 This is my neovim configuration and plugin with tokyonight theme 
 
 ```
-https://github.com/htanama/LazyVim.git ~/.config/nvim
+git clone https://github.com/htanama/LazyVim.git ~/.config/nvim
 
 ```
 
@@ -37,3 +36,5 @@ Run this command below to tell your system's font configuration to rebuild its c
 ```
 fc-cache -fv
 ```
+
+Please refer to the main documentation at LazyVim - https://www.lazyvim.org/
