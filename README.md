@@ -37,4 +37,10 @@ Run this command below to tell your system's font configuration to rebuild its c
 fc-cache -fv
 ```
 
+Now you can Start the Neovim with my LazyVim with Tokyonight plugin
+
+```
+nvim
+```
+
 Please refer to the main documentation at LazyVim - https://www.lazyvim.org/
