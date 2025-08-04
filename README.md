@@ -12,7 +12,7 @@ mv ~/.local/state/nvim{,.bak}
 mv ~/.cache/nvim{,.bak}
 ```
 
-This is my neovim configuration and plugin with tokyonight theme 
+This is my neovim configuration and plugin with tokyonight theme and copy and run this command:
 
 ```
 git clone https://github.com/htanama/LazyVim.git ~/.config/nvim
