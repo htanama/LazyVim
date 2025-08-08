@@ -57,3 +57,18 @@ First, ensure that Clangd is installed. LazyVim uses `mason.nvim` to manage lang
   3. Find `clangd` in the list.
 
   4. If it's not installed, select it and press `i` to install it.
+
+
+2. Configure Your C++ Project
+
+For Clangd to function correctly, it needs to know how to compile your project. It can't guess your include paths, compiler flags, and build structure. The solution is a compile_commands.json file.
+
+   This file acts as a database of all the commands used to compile your project's files.
+
+   Clangd reads this file to understand your project's structure and provide accurate LSP features.
+
+   Place the `compile_commands.json` file in the root directory of your project.
+
+Use Bear is a tool that generates a compilation database for clang tooling and generate `compile_commands.json`
+
+https://github.com/rizsotto/Bear 
