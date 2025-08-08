@@ -105,3 +105,14 @@ Check Your Keymaps
 Finally, confirm that your keymap for "go to definition" is correct. The standard LazyVim keybinding is gd in normal mode. If you've customized your keymaps, ensure that gd is mapped to `vim.lsp.buf.definition()`.
 
 In summary, the most critical steps for C++ are to install Clangd and, most importantly, provide a `compile_commands.json` file in your project root. Without that file, Clangd cannot provide intelligent "go to definition" functionality.
+
+`vim.lsp.buf.definition()` when setting up your keymaps. For example, in your Neovim configuration (e.g., ~/.config/nvim/lua/keymaps.lua).
+
+
+This line tells Neovim that when you press gd in normal mode, it should execute the vim.lsp.buf.definition() function.
+```
+vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = 'Go to definition' })
+```
+
+The function itself is part of Neovim's core Lua code and is not a separate file you need to download or manually manage.
+
