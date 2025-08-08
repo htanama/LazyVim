@@ -72,3 +72,18 @@ For Clangd to function correctly, it needs to know how to compile your project. 
 Use Bear is a tool that generates a compilation database for clang tooling and generate `compile_commands.json`
 
 https://github.com/rizsotto/Bear 
+
+Another way to generate `compile_commands.json`
+
+The most common way to generate this file is by using a build system like CMake.
+
+   If you're using CMake, add this line to your CMakeLists.txt file:
+   set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+   Then, run CMake to generate the build files:
+   
+   `cmake -B build -S .`
+
+  The compile_commands.json file will be created in your build directory. You can either copy it to your project root or configure your LSP to find it in the build directory. A    good practice is to create a symlink:
+    
+  `ln -s build/compile_commands.json`
