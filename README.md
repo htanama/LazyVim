@@ -87,3 +87,21 @@ The most common way to generate this file is by using a build system like CMake.
   The compile_commands.json file will be created in your build directory. You can either copy it to your project root or configure your LSP to find it in the build directory. A    good practice is to create a symlink:
     
   `ln -s build/compile_commands.json`
+
+
+Verify LSP is Active
+
+After ensuring Clangd is installed and your project has a compile_commands.json file, verify that the LSP is attached to your C++ buffer.
+
+   Open a C++ file in your project.
+
+   Run the command `:LspInfo`.
+
+   A window should pop up showing that the clangd language server is attached to the buffer. If it's not, something is wrong with your configuration, and you may need to check the Neovim logs for errors.
+
+
+Check Your Keymaps
+
+Finally, confirm that your keymap for "go to definition" is correct. The standard LazyVim keybinding is gd in normal mode. If you've customized your keymaps, ensure that gd is mapped to `vim.lsp.buf.definition()`.
+
+In summary, the most critical steps for C++ are to install Clangd and, most importantly, provide a `compile_commands.json` file in your project root. Without that file, Clangd cannot provide intelligent "go to definition" functionality.
