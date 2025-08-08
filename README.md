@@ -44,3 +44,16 @@ nvim
 ```
 
 Please refer to the main documentation at LazyVim - https://www.lazyvim.org/
+
+Jump to Definition 
+
+Install Clangd
+
+First, ensure that Clangd is installed. LazyVim uses `mason.nvim` to manage language servers, so the easiest way to install it is from within Neovim.
+
+  1. Open `Neovim` 
+  2. Run the command `:Mason` to open the Mason UI.
+
+  3. Find `clangd` in the list.
+
+  4. If it's not installed, select it and press `i` to install it.
