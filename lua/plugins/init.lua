@@ -3,7 +3,13 @@ require('lspconfig').clangd.setup{}
 
 local M = {
   module = "tokyonight",
-  colorscheme = "tokyonight",
+  colorscheme = "tokyonight-night",
+  -- There are also colorschemes for the different styles.
+  -- colorscheme tokyonight-night
+  -- colorscheme tokyonight-storm
+  -- colorscheme tokyonight-day
+  -- colorscheme tokyonight-moon
+
   opts = { style = "moon", plugins = { all = true } },
   globals = { vim = vim },
   cache = {}, ---@type table<string, boolean>
@@ -108,4 +114,33 @@ return {
       })
     end,
   },
+
+  {
+    "Saghen/blink.cmp",
+    -- Load the plugin when you enter Insert mode.
+    -- This improves startup time.
+    event = "InsertEnter",
+
+    -- This is where you put the plugin's setup function.
+    config = function()
+      require("blink.cmp").setup({
+        -- Your custom configuration goes here.
+        -- For a simple setup, an empty table is fine.
+        -- For example, to enable snippet support with LuaSnip:
+        snippet = {
+          expand = function(args)
+            require("luasnip").lsp_expand(args.body)
+          end,
+        },
+      })
+    end,
+
+    -- Specify other plugins that blink.cmp depends on.
+    -- In this case, a snippet engine like LuaSnip.
+    dependencies = {
+      "L3MON4D3/LuaSnip",
+    },
+  },
+
+
 }
