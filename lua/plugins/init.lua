@@ -1,3 +1,6 @@
+-- in your init.lua
+require('lspconfig').clangd.setup{}
+
 local M = {
   module = "tokyonight",
   colorscheme = "tokyonight",
