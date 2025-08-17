@@ -1,3 +1,4 @@
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = "https://github.com/folke/lazy.nvim.git"
@@ -13,6 +14,14 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   end
 end
 vim.opt.rtp:prepend(lazypath)
+
+-- Set up a keymap for jumping to definition
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = function(args)
+    local bufnr = args.buf
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = bufnr, desc = 'Go to definition' })
+  end
+})
 
 require("lazy").setup({
   spec = {
@@ -50,4 +59,31 @@ require("lazy").setup({
       },
     },
   },
+
+	{
+	  'williamboman/mason.nvim',
+	  dependencies = {
+		'williamboman/mason-lspconfig.nvim',
+	  },
+	  config = function()
+		require("mason").setup()
+		require("mason-lspconfig").setup({
+		  -- a list of servers to install
+		  ensure_installed = { "lua_ls", "pyright", "rust_analyzer", "clangd" },
+		})
+	  end,
+	},
+	{
+	  'neovim/nvim-lspconfig',
+	  config = function()
+		local lspconfig = require('lspconfig')
+		lspconfig.lua_ls.setup({}) -- Example for Lua
+		lspconfig.pyright.setup({}) -- Example for Python
+		lspconfig.rust_analyzer.setup({}) -- Example for Rust
+		lspconfig.clangd.setup({}) -- Basic setup for clangd
+	  end
+	}
+
 })
+
+
