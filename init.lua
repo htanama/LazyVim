@@ -1,5 +1,8 @@
 require("config.lazy")
 
+vim.opt.number = true
+vim.opt.relativenumber = false
+
 vim.opt.guicursor = 'n:block,v:block,i:block'
 
 -- Makes the block cursor blink with a 100ms on-time
